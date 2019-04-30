@@ -88,7 +88,7 @@ namespace BoxesGame
 
             if (rule != null)
             {
-                var result = rule.GetResolveState(state);
+                var result = rule.GetResolvedState(state);
                 map.Set(heroPosition.X, heroPosition.Y, result.InteractingObject);
                 map.Set(heroPosition.X + direction.X, heroPosition.Y + direction.Y, result.InteractionObject);
                 map.Set(heroPosition.X + direction.X * 2, heroPosition.Y + direction.Y * 2, result.NextObject);

@@ -9,7 +9,7 @@ namespace BoxesGame
                         state.InteractingObject.Type == GameObjectType.Hero;
         }
 
-        public InteractionState GetResolveState(InteractionState state)
+        public InteractionState GetResolvedState(InteractionState state)
         {
             return new InteractionState
             {
