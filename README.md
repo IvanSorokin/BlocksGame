@@ -1,1 +1,2 @@
 # BoxGame
+Simple game basics
