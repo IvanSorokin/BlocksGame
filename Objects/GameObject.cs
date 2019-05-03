@@ -17,7 +17,7 @@ namespace BoxGame.Objects
             new BreakableWall()
         };
 
-        public abstract GameObject ReCreate();
+        public abstract GameObject TryParse(char ch);
 
         private GameObject bottom;
         public GameObject Bottom
@@ -34,7 +34,7 @@ namespace BoxGame.Objects
 
         public static GameObject FromChar(char ch)
         {
-            var obj = knownObjects.SingleOrDefault(x => x.Symbol == ch)?.ReCreate();
+            var obj = knownObjects.Select(x => x.TryParse(ch)).FirstOrDefault(x => x != null);
             return obj ?? throw new ArgumentException("Unsupported char");
         }
     }

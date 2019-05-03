@@ -4,6 +4,6 @@
     {
         public override char Symbol => '=';
 
-        public override GameObject ReCreate() => new BreakableWall();
+        public override GameObject TryParse(char ch) => ch == Symbol ? new BreakableWall() : null;
     }
 }

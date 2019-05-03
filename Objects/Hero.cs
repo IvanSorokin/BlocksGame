@@ -9,7 +9,7 @@ namespace BoxGame.Objects
 
         public override char Symbol => '@';
 
-        public override GameObject ReCreate() => new Hero { State = new HeroState() };
+        public override GameObject TryParse(char ch) => ch == Symbol ? new Hero { State = new HeroState() } : null;
 
         public HeroState State { get; set; }
     }

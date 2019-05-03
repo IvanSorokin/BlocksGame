@@ -4,6 +4,6 @@ namespace BoxGame.Objects
     {
         public override char Symbol => 'o';
 
-        public override GameObject ReCreate() => new Pit();
+        public override GameObject TryParse(char ch) => ch == Symbol ? new Pit() : null;
     }
 }
