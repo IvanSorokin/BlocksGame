@@ -41,9 +41,16 @@ namespace BoxesGame
             }
         }
 
+        private static void ClearLastOutput()
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.Write(new string(' ', Console.WindowWidth * Console.WindowHeight));
+            Console.SetCursorPosition(0, 0);
+        }
+
         public void Start()
         {
-            Refresh();
+            RefreshScreen(fullClear: true);
 
             while (true)
             {
@@ -52,7 +59,7 @@ namespace BoxesGame
 
                 if (possibleDirection != null && TryMoveHero(possibleDirection))
                 {
-                    Refresh();
+                    RefreshScreen();
 
                     if (WinConditionFound())
                     {
@@ -63,9 +70,13 @@ namespace BoxesGame
             }
         }
 
-        private void Refresh()
+        private void RefreshScreen(bool fullClear = false)
         {
-            Console.Clear();
+            if (fullClear)
+                Console.Clear();
+            else
+                ClearLastOutput();
+
             Console.WriteLine(map.ToFrame());
             Console.WriteLine((map.Get(heroPosition.X, heroPosition.Y) as Hero).State);
         }
