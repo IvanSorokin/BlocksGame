@@ -9,8 +9,8 @@ namespace BoxesGame
             return state.InteractionObject is Box &&
                    state.InteractingObject is Hero &&
                    (
-                        state.NextObject is Space ||
-                        state.NextObject is Pit
+                        state.NextToInteractionObject is Space ||
+                        state.NextToInteractionObject is Pit
                    );
         }
 
@@ -22,7 +22,7 @@ namespace BoxesGame
                 InteractionObject = state.InteractionObject is Box
                                     ? state.InteractingObject.WithBottom(state.InteractionObject.Bottom)
                                     : state.InteractingObject.WithBottom(state.InteractionObject),
-                NextObject = state.InteractionObject.WithBottom(state.NextObject)
+                NextToInteractionObject = state.InteractionObject.WithBottom(state.NextToInteractionObject)
             };
         }
     }

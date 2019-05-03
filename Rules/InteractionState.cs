@@ -6,6 +6,6 @@ namespace BoxesGame
     {
         public GameObject InteractingObject { get; set; }
         public GameObject InteractionObject { get; set; }
-        public GameObject NextObject { get; set; }
+        public GameObject NextToInteractionObject { get; set; }
     }
 }

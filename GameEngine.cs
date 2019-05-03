@@ -103,7 +103,7 @@ namespace BoxesGame
             {
                 InteractingObject = hero,
                 InteractionObject = interactionObject,
-                NextObject = nextObject
+                NextToInteractionObject = nextObject
             };
 
             var rule = rules.SingleOrDefault(x => x.CanBeApplied(state));
@@ -113,7 +113,7 @@ namespace BoxesGame
                 var result = rule.GetResolvedState(state);
                 map.Set(heroPosition.X, heroPosition.Y, result.InteractingObject);
                 map.Set(heroPosition.X + direction.X, heroPosition.Y + direction.Y, result.InteractionObject);
-                map.Set(heroPosition.X + direction.X * 2, heroPosition.Y + direction.Y * 2, result.NextObject);
+                map.Set(heroPosition.X + direction.X * 2, heroPosition.Y + direction.Y * 2, result.NextToInteractionObject);
                 heroPosition = new Vector(heroPosition.X + direction.X, heroPosition.Y + direction.Y);
                 return true;
             }

@@ -17,7 +17,7 @@ namespace BoxesGame
             {
                 InteractingObject = state.InteractingObject.Bottom,
                 InteractionObject = state.InteractingObject,
-                NextObject = state.NextObject
+                NextToInteractionObject = state.NextToInteractionObject
             };
         }
     }
