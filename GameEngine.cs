@@ -19,7 +19,8 @@ namespace BoxesGame
                 new SimpleMoveRule(),
                 new SimpleBoxMoveRule(),
                 new CoinRule(),
-                new BreakableWallRule()
+                new BreakableWallRule(),
+                new CounterWallRule()
             };
         }
 
