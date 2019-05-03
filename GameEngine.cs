@@ -17,7 +17,9 @@ namespace BoxesGame
             rules = new IInteractionRule[]
             {
                 new SimpleMoveRule(),
-                new SimpleBoxMoveRule()
+                new SimpleBoxMoveRule(),
+                new CoinRule(),
+                new BreakableWallRule()
             };
         }
 
@@ -40,8 +42,8 @@ namespace BoxesGame
 
         public void Start()
         {
-            Console.Clear();
-            Console.WriteLine(map.ToFrame());
+            Refresh();
+
             while (true)
             {
                 var key = Console.ReadKey(true).KeyChar;
@@ -49,8 +51,8 @@ namespace BoxesGame
 
                 if (possibleDirection != null && TryMoveHero(possibleDirection))
                 {
-                    Console.Clear();
-                    Console.WriteLine(map.ToFrame());
+                    Refresh();
+
                     if (WinConditionFound())
                     {
                         Console.WriteLine("You won!");
@@ -58,6 +60,13 @@ namespace BoxesGame
                     }
                 }
             }
+        }
+
+        private void Refresh()
+        {
+            Console.Clear();
+            Console.WriteLine(map.ToFrame());
+            Console.WriteLine((map.Get(heroPosition.X, heroPosition.Y) as Hero).State);
         }
 
         private bool WinConditionFound()

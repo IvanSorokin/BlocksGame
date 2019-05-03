@@ -12,7 +12,9 @@ namespace BoxGame.Objects
             new Hero(),
             new Pit(),
             new Space(),
-            new Wall()
+            new Wall(),
+            new Coin(),
+            new BreakableWall()
         };
 
         public abstract GameObject ReCreate();
