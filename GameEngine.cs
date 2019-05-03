@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using BoxGame.Objects;
 
 namespace BoxesGame
 {
@@ -65,7 +66,7 @@ namespace BoxesGame
                 for (var j = 0; j < map.Height; j++)
                 {
                     var obj = map.Get(i, j);
-                    if (obj.Type == GameObjectType.Box && obj.Bottom.Type != GameObjectType.Pit)
+                    if (obj is Box && !(obj.Bottom is Pit))
                         return false;
                 }
             return true;

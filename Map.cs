@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using BoxGame.Objects;
 
 namespace BoxesGame
 {
@@ -29,7 +30,7 @@ namespace BoxesGame
         {
             for (int i = 0; i < map.Length; i++)
                 for (int j = 0; j < map[i].Length; j++)
-                    if (map[i][j].Type == GameObjectType.Hero)
+                    if (map[i][j] is Hero)
                         return new Vector(i, j);
 
             throw new ArgumentException("No hero on map");
@@ -41,7 +42,7 @@ namespace BoxesGame
 
         public int Width => map.Length;
 
-        public int Height => map[0].Length;  
+        public int Height => map[0].Length;
 
         public string ToFrame()
         {

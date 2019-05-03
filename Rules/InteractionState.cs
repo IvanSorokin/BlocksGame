@@ -1,3 +1,5 @@
+using BoxGame.Objects;
+
 namespace BoxesGame
 {
     public class InteractionState
